@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { Card } from "@/components/Card";
 import { Section } from "@/components/Section";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Metadata {
+  return buildMetadata({
+    title: "Pump.fun — Memecoins y tendencias en Solana",
+    description:
+      "Analiza memecoins, liquidez inicial y métricas en tiempo real de Pump.fun con la guía táctica de Wolfsfera.",
+    path: "/pumpfun",
+  });
+}
 
 const bulletPoints = [
   "Lanzamientos instantáneos con liquidez inicial programática.",
@@ -20,16 +31,7 @@ export default function PumpFunPage() {
             <p className="text-lg text-neutral-200">
               Sigue el pulso del mercado memecoin con dashboards en tiempo real, curvas de liquidez automatizadas y herramientas para inversores que buscan velocidad sin perder el control.
             </p>
-            <AffiliateButton
-              href="https://pump.fun"
-              label="Ir a Pump.fun"
-              external
-              utm={{
-                utm_source: "wolfsfera",
-                utm_medium: "cta",
-                utm_campaign: "pumpfun",
-              }}
-            />
+            <AffiliateButton href="https://pump.fun" label="Ir a Pump.fun" external />
           </div>
           <Card className="flex-1 space-y-4">
             <h3 className="text-xl font-semibold text-primary-gold">¿Qué es Pump.fun?</h3>
@@ -45,9 +47,7 @@ export default function PumpFunPage() {
         </div>
       </Section>
       <section aria-label="Aviso legal" className="rounded-2xl border border-primary-gold/20 bg-primary-dark/70 p-6 text-sm text-neutral-300">
-        <p>
-          Inversión bajo tu propia responsabilidad. No constituye asesoramiento financiero. DYOR.
-        </p>
+        <p>Inversión bajo tu propia responsabilidad. No constituye asesoramiento financiero. DYOR.</p>
       </section>
     </div>
   );

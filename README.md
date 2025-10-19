@@ -66,3 +66,15 @@ import { ExternalLink } from "@/components/ExternalLink";
 ```
 
 Ambos componentes respetan accesibilidad y estilos de foco dorado para integrarse con el branding de Wolfsfera.
+
+## SEO y Analytics
+
+1. Configura las variables de entorno en `.env.local`:
+   - `NEXT_PUBLIC_SITE_URL` debe apuntar a la URL pública sin barra final (ej. `https://wolfsfera.com`).
+   - `NEXT_PUBLIC_GA_ID` define el identificador de Google Analytics 4 (formato `G-XXXXXXX`).
+2. Sustituye la imagen `public/og.jpg` por una versión optimizada en 1200x630 px que represente la identidad negra/dorada de Wolfsfera.
+3. Tras desplegar, verifica los datos estructurados y las etiquetas Open Graph:
+   - Usa [Rich Results Test](https://search.google.com/test/rich-results) para validar el JSON-LD.
+   - Usa una herramienta de vista previa OG/Twitter (p. ej. https://www.opengraph.xyz/) para confirmar la imagen y los metadatos.
+4. Comprueba que `https://tusitio.com/robots.txt` y `https://tusitio.com/sitemap.xml` respondan correctamente y que incluyan las rutas esperadas.
+5. El banner de cookies gestiona el Consent Mode v2. Acepta o rechaza en la interfaz para confirmar que sólo se inyecta GA cuando existe consentimiento.
