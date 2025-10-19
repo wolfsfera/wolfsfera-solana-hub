@@ -78,3 +78,25 @@ Ambos componentes respetan accesibilidad y estilos de foco dorado para integrars
    - Usa una herramienta de vista previa OG/Twitter (p. ej. https://www.opengraph.xyz/) para confirmar la imagen y los metadatos.
 4. Comprueba que `https://tusitio.com/robots.txt` y `https://tusitio.com/sitemap.xml` respondan correctamente y que incluyan las rutas esperadas.
 5. El banner de cookies gestiona el Consent Mode v2. Acepta o rechaza en la interfaz para confirmar que sólo se inyecta GA cuando existe consentimiento.
+
+## Dashboard en vivo
+
+El panel `/dashboard` agrega tres bloques actualizados cada minuto:
+
+- **Resumen SOL**: precio spot, variación 24h, market cap (cuando Coingecko lo publica) y hora de la última actualización.
+- **Tokens destacados**: tabla con 7 activos del ecosistema Solana, incluyendo sparkline de 7 días y enlaces externos validados.
+- **Pump.fun trending**: listado de memes en tendencia con CTA afiliado hacia Pump.fun.
+
+### Fuentes de datos
+
+- [Coingecko API pública](https://www.coingecko.com/) para precio, variación 24h, market cap y series de 7 días.
+- Mock seguro en caso de que Coingecko o Pump.fun no respondan; se muestra un badge “Datos en caché”.
+
+### Personalización
+
+- Edita `getTokensBrief()` en `lib/data/solana.ts` para añadir o quitar IDs soportados por Coingecko.
+- Ajusta la política de caché cambiando `revalidate: 60` en las funciones de datos o en las rutas de la API.
+
+### Nota legal
+
+Los datos de mercado se ofrecen sin garantía y **no constituyen consejo financiero**. Usa la información bajo tu propio criterio.
