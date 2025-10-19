@@ -107,3 +107,20 @@ El panel `/dashboard` agrega tres bloques actualizados cada minuto:
 ### Nota legal
 
 Los datos de mercado se ofrecen sin garantía y **no constituyen consejo financiero**. Usa la información bajo tu propio criterio.
+
+## Deploy en Vercel
+
+1. Importa este repositorio en Vercel y selecciona el framework **Next.js** (detección automática).
+2. Configura las variables de entorno en el proyecto:
+   - `NEXT_PUBLIC_SITE_URL` → dominio público definitivo en producción.
+   - `NEXT_PUBLIC_GA_ID` → identificador GA4 (opcional, solo si usas Analytics).
+3. En la sección **Domains** añade `wolfsfera.com` u otro dominio propio y apunta los DNS.
+4. Lanza un redeploy para aplicar la configuración.
+5. Verifica tras el despliegue:
+   - `https://tu-dominio.com/api/health` devuelve `{ ok: true }` con `env` y `time`.
+   - `/robots.txt` responde `noindex, nofollow` en previews y permite indexación en producción.
+   - Valida las etiquetas OG/Twitter en [metatags.io](https://metatags.io/).
+   - El banner de consentimiento aparece y Google Analytics solo se activa tras aceptar.
+6. Comprueba las cabeceras de seguridad ejecutando `curl -I https://tu-dominio.com` o desde DevTools → Network.
+
+Las previsualizaciones (`VERCEL_ENV=preview`) muestran un banner “Preview build — noindex”, devuelven `robots.txt` con `noindex` y no generan sitemap. Ajusta `NEXT_PUBLIC_SITE_URL` en cada entorno para mantener metadatos y canónicos correctos.
