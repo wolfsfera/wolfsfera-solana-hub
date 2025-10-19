@@ -1,3 +1,7 @@
+"use client";
+
+import { useMemo } from "react";
+import { usePathname } from "next/navigation";
 import type { AnchorHTMLAttributes } from "react";
 
 const baseClasses =
@@ -14,8 +18,8 @@ export interface AffiliateButtonProps extends Omit<AnchorHTMLAttributes<HTMLAnch
   external?: boolean;
 }
 
-function buildHrefWithUtm(baseHref: string, utm?: UTMParams): string {
-  if (!utm || Object.keys(utm).length === 0) {
+function buildHrefWithUtm(baseHref: string, utm: UTMParams): string {
+  if (Object.keys(utm).length === 0) {
     return baseHref;
   }
 
@@ -34,6 +38,15 @@ function buildHrefWithUtm(baseHref: string, utm?: UTMParams): string {
   return `${path}${query ? `?${query}` : ""}${hashSuffix}`;
 }
 
+function deriveCampaignSlug(pathname: string | null): string {
+  if (!pathname || pathname === "/") {
+    return "home";
+  }
+
+  const trimmed = pathname.replace(/^\/+|\/+$/g, "");
+  return trimmed.replace(/\//g, "-") || "home";
+}
+
 export function AffiliateButton({
   href,
   label,
@@ -42,11 +55,28 @@ export function AffiliateButton({
   className,
   ...restProps
 }: AffiliateButtonProps) {
+  const pathname = usePathname();
+
+  const defaultUtm = useMemo<UTMParams>(() => {
+    const campaign = deriveCampaignSlug(pathname);
+    return {
+      utm_source: "wolfsfera",
+      utm_medium: "affiliate",
+      utm_campaign: campaign,
+    };
+  }, [pathname]);
+
+  const mergedUtm = useMemo(() => {
+    const withDefaults = { ...defaultUtm, ...utm } as UTMParams;
+    return Object.fromEntries(
+      Object.entries(withDefaults).filter(([, value]) => Boolean(value)),
+    ) as UTMParams;
+  }, [defaultUtm, utm]);
+
+  const finalHref = useMemo(() => buildHrefWithUtm(href, mergedUtm), [href, mergedUtm]);
+  const rel = "nofollow sponsored noopener noreferrer";
+
   const { ["aria-label"]: ariaLabel, ...props } = restProps;
-  const finalHref = buildHrefWithUtm(href, utm);
-  const rel = external
-    ? "nofollow sponsored noopener noreferrer"
-    : "nofollow sponsored";
 
   return (
     <a

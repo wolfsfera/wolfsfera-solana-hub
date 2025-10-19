@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import { Section } from "@/components/Section";
+import { buildMetadata } from "@/lib/seo";
+
+export function generateMetadata(): Metadata {
+  return buildMetadata({
+    title: "Inversiones en Solana — Estrategias Wolfsfera",
+    description:
+      "Explora análisis, métricas y frameworks para tomar decisiones inteligentes en el ecosistema de inversiones de Solana.",
+    path: "/inversiones",
+  });
+}
 
 export default function InversionesPage() {
   return (
