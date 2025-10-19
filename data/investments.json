@@ -1,0 +1,83 @@
+[
+  {
+    "id": "phantom",
+    "name": "Phantom",
+    "category": "wallet",
+    "risk": "low",
+    "summary": "Billetera multichain con soporte nativo para Solana, seguridad robusta y UX simplificada para onboarding masivo.",
+    "url": "https://phantom.app/",
+    "whitelistDomain": "phantom.app"
+  },
+  {
+    "id": "solflare",
+    "name": "Solflare",
+    "category": "wallet",
+    "risk": "low",
+    "summary": "Wallet veterana del ecosistema Solana con integraciones DeFi y versión hardware-friendly para proteger llaves.",
+    "url": "https://solflare.com/",
+    "whitelistDomain": "solflare.com"
+  },
+  {
+    "id": "ledger-nano-x",
+    "name": "Ledger Nano X",
+    "category": "hardware",
+    "risk": "low",
+    "summary": "Dispositivo hardware wallet con Bluetooth y soporte para Solana, ideal para custodiar capital a largo plazo.",
+    "url": "https://www.ledger.com/products/ledger-nano-x",
+    "whitelistDomain": "ledger.com"
+  },
+  {
+    "id": "jupiter",
+    "name": "Jupiter",
+    "category": "exchange",
+    "risk": "mid",
+    "summary": "Aggregator DEX líder en Solana que enruta órdenes para conseguir mejor precio y profundidad de liquidez.",
+    "url": "https://jup.ag/",
+    "whitelistDomain": "jup.ag"
+  },
+  {
+    "id": "orca",
+    "name": "Orca",
+    "category": "exchange",
+    "risk": "mid",
+    "summary": "AMM intuitivo con pools concentrados y rendimiento competitivo para traders y proveedores de liquidez.",
+    "url": "https://www.orca.so/",
+    "whitelistDomain": "orca.so"
+  },
+  {
+    "id": "marinade",
+    "name": "Marinade",
+    "category": "staking",
+    "risk": "mid",
+    "summary": "Solución de liquid staking no custodial que delega en validadores diversificados y emite mSOL.",
+    "url": "https://marinade.finance/",
+    "whitelistDomain": "marinade.finance"
+  },
+  {
+    "id": "kamino",
+    "name": "Kamino",
+    "category": "staking",
+    "risk": "high",
+    "summary": "Estrategias automatizadas de liquidez concentrada y lending con gestión dinámica de colateral.",
+    "url": "https://www.kamino.finance/",
+    "whitelistDomain": "kamino.finance"
+  },
+  {
+    "id": "ramp",
+    "name": "Ramp",
+    "category": "fiat-onramp",
+    "risk": "low",
+    "summary": "Onramp global regulado para comprar SOL con tarjetas o transferencias con liquidaciones rápidas.",
+    "url": "https://ramp.network/buy",
+    "whitelistDomain": "ramp.network"
+  },
+  {
+    "id": "moonpay",
+    "name": "MoonPay",
+    "category": "fiat-onramp",
+    "risk": "mid",
+    "summary": "Pasarela fiat ↔ cripto con soporte en múltiples países y métodos de pago, útil para onboarding retail.",
+    "url": "https://www.moonpay.com/buy/sol",
+    "whitelistDomain": "moonpay.com"
+  }
+]
