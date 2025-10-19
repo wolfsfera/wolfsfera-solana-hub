@@ -1,0 +1,10 @@
+{
+  "allowedDomains": [
+    "pump.fun",
+    "solana.com",
+    "phantom.app",
+    "solscan.io",
+    "youtube.com",
+    "docs.solana.com"
+  ]
+}

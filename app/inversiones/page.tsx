@@ -1,11 +1,14 @@
+import { Section } from "@/components/Section";
+
 export default function InversionesPage() {
   return (
-    <section className="space-y-4">
-      <h1 className="text-3xl font-semibold tracking-tight">Inversiones</h1>
-      <p className="text-neutral-300">
-        Contenido introductorio sobre estrategias y oportunidades de inversión en Solana. Próximamente añadiremos guías y
-        análisis detallados.
+    <Section
+      title="Inversiones"
+      subtitle="Estamos compilando estrategias, análisis y herramientas para navegar las oportunidades del ecosistema Solana."
+    >
+      <p className="text-neutral-200">
+        Próximamente encontrarás breakdowns de proyectos, métricas clave y recursos educativos diseñados para ayudarte a evaluar riesgos y gestionar tu cartera con precisión.
       </p>
-    </section>
+    </Section>
   );
 }
