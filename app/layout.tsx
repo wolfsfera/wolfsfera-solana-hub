@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Wolfsfera Solana Hub",
@@ -17,16 +24,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className="min-h-screen bg-neutral-950 text-neutral-100">
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1 px-4 py-10 md:px-8 lg:px-12">
-            <div className="mx-auto w-full max-w-4xl space-y-6">
-              {children}
-            </div>
-          </main>
-          <Footer />
-        </div>
+      <body
+        className={`${poppins.className} flex min-h-screen flex-col bg-transparent text-neutral-100 antialiased`}
+      >
+        <Header />
+        <main className="container mx-auto flex-1 px-4 py-8">
+          <div className="space-y-12">{children}</div>
+        </main>
+        <Footer />
         <CookieBanner />
       </body>
     </html>

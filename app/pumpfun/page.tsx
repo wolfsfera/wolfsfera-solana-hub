@@ -1,11 +1,54 @@
+import { AffiliateButton } from "@/components/AffiliateButton";
+import { Card } from "@/components/Card";
+import { Section } from "@/components/Section";
+
+const bulletPoints = [
+  "Lanzamientos instantáneos con liquidez inicial programática.",
+  "Métricas en vivo para detectar momentum de la comunidad.",
+  "Integración directa con billeteras Solana de bajo coste.",
+];
+
 export default function PumpFunPage() {
   return (
-    <section className="space-y-4">
-      <h1 className="text-3xl font-semibold tracking-tight">Pump.fun</h1>
-      <p className="text-neutral-300">
-        Espacio dedicado a explorar proyectos emergentes de Pump.fun y las oportunidades que ofrecen dentro del ecosistema
-        Solana.
-      </p>
-    </section>
+    <div className="space-y-16">
+      <Section
+        title="Explora las memecoins más salvajes de Solana 🐺⚡"
+        subtitle="Pump.fun es el laboratorio donde nacen los tokens más virales del ecosistema. Analiza oportunidades, monitoriza tendencias y actúa con responsabilidad."
+      >
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
+          <div className="flex-1 space-y-5">
+            <p className="text-lg text-neutral-200">
+              Sigue el pulso del mercado memecoin con dashboards en tiempo real, curvas de liquidez automatizadas y herramientas para inversores que buscan velocidad sin perder el control.
+            </p>
+            <AffiliateButton
+              href="https://pump.fun"
+              label="Ir a Pump.fun"
+              external
+              utm={{
+                utm_source: "wolfsfera",
+                utm_medium: "cta",
+                utm_campaign: "pumpfun",
+              }}
+            />
+          </div>
+          <Card className="flex-1 space-y-4">
+            <h3 className="text-xl font-semibold text-primary-gold">¿Qué es Pump.fun?</h3>
+            <ul className="space-y-3 text-sm text-neutral-200">
+              {bulletPoints.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <span aria-hidden className="mt-1 h-2 w-2 rounded-full bg-solana-green shadow-[0_0_12px_rgba(20,241,149,0.6)]" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      </Section>
+      <section aria-label="Aviso legal" className="rounded-2xl border border-primary-gold/20 bg-primary-dark/70 p-6 text-sm text-neutral-300">
+        <p>
+          Inversión bajo tu propia responsabilidad. No constituye asesoramiento financiero. DYOR.
+        </p>
+      </section>
+    </div>
   );
 }
