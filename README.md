@@ -67,6 +67,13 @@ import { ExternalLink } from "@/components/ExternalLink";
 
 Ambos componentes respetan accesibilidad y estilos de foco dorado para integrarse con el branding de Wolfsfera.
 
+## Inversiones — filtros y tracking
+
+- Edita `data/investments.json` para añadir, actualizar o eliminar proyectos. Respeta las claves existentes (`id`, `name`, `category`, `risk`, `summary`, `url`, `whitelistDomain`).
+- Si un dominio no está permitido, añade su hostname (sin `https://`) en `data/whitelist.json` dentro del array `allowedDomains`.
+- Los clics en CTAs afiliados respetan el consentimiento de cookies y registran métricas básicas en `localStorage['wf_events']`. Cada clave corresponde al nombre del evento (p. ej. `affiliate_click`).
+- Antes de publicar nuevos partners revisa la nota legal: Wolfsfera es un medio informativo, los enlaces pueden contener afiliación y existen riesgos inherentes al invertir.
+
 ## SEO y Analytics
 
 1. Configura las variables de entorno en `.env.local`:

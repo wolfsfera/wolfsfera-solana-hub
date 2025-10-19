@@ -7,9 +7,10 @@ export interface ExternalLinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorE
   href: string;
   children: ReactNode;
   className?: string;
+  unstyled?: boolean;
 }
 
-function getDomain(href: string): string | null {
+export function extractDomain(href: string): string | null {
   try {
     const url = new URL(href);
     return url.hostname.replace(/^www\./, "").toLowerCase();
@@ -18,11 +19,39 @@ function getDomain(href: string): string | null {
   }
 }
 
+export function isDomainAllowed(domainOrHref: string | null | undefined): boolean {
+  if (!domainOrHref) {
+    return false;
+  }
+
+  const domain = domainOrHref.includes("://")
+    ? extractDomain(domainOrHref)
+    : domainOrHref.replace(/^www\./, "").toLowerCase();
+
+  if (!domain) {
+    return false;
+  }
+
+  return allowedDomains.has(domain);
+}
+
 const baseClasses =
   "underline underline-offset-4 transition focus-visible:outline-none focus-visible:ring-0";
 
-export function ExternalLink({ href, children, className = "", ...props }: ExternalLinkProps) {
-  const domain = getDomain(href);
+export function ExternalLink({
+  href,
+  children,
+  className = "",
+  unstyled = false,
+  ...props
+}: ExternalLinkProps) {
+  const domain = extractDomain(href);
+  const allowedClassName = unstyled
+    ? className
+    : `${baseClasses} text-solana-green hover:text-solana-purple${className ? ` ${className}` : ""}`;
+  const fallbackClassName = unstyled
+    ? className
+    : `${baseClasses} text-sky-300 hover:text-solana-green${className ? ` ${className}` : ""}`;
 
   if (domain && !allowedDomains.has(domain)) {
     return (
@@ -37,7 +66,7 @@ export function ExternalLink({ href, children, className = "", ...props }: Exter
       <a
         {...props}
         href={href}
-        className={`${baseClasses} text-sky-300 hover:text-solana-green${className ? ` ${className}` : ""}`}
+        className={fallbackClassName}
       >
         {children}
       </a>
@@ -50,7 +79,7 @@ export function ExternalLink({ href, children, className = "", ...props }: Exter
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${baseClasses} text-solana-green hover:text-solana-purple${className ? ` ${className}` : ""}`}
+      className={allowedClassName}
     >
       {children}
     </a>
