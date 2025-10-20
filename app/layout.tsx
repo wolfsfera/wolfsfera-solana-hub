@@ -7,7 +7,14 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
-import { resolveSiteUrl, getStructuredOgImage } from "@/lib/seo";
+import {
+  PRODUCTION_SITE_URL,
+  getDeploymentEnv,
+  getStructuredOgImage,
+  isPreviewDeployment,
+  resolveSiteUrl,
+} from "@/lib/seo";
+import { EnvBanner } from "@/components/EnvBanner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,38 +23,48 @@ const poppins = Poppins({
 });
 
 const siteUrl = resolveSiteUrl();
+const deploymentEnv = getDeploymentEnv();
+const isPreview = isPreviewDeployment();
+const previewSuffix = isPreview ? " [Preview]" : "";
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? siteUrl;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Wolfsfera Solana Hub",
-    template: "%s | Wolfsfera",
+    default: `Wolfsfera Solana Hub${previewSuffix}`,
+    template: `%s | Wolfsfera${previewSuffix}`,
   },
   description: "Hub informativo sobre inversiones y ecosistema Solana.",
   themeColor: "#0a0a0a",
   alternates: {
     canonical: siteUrl,
   },
+  robots: isPreview
+    ? {
+        index: false,
+        follow: false,
+      }
+    : undefined,
   openGraph: {
-    title: "Wolfsfera Solana Hub",
+    title: `Wolfsfera Solana Hub${previewSuffix}`,
     description: "Hub informativo sobre inversiones y ecosistema Solana.",
     type: "website",
     locale: "es_ES",
     url: siteUrl,
-    siteName: "Wolfsfera",
+    siteName: `Wolfsfera${previewSuffix}`,
     images: [
       {
         url: getStructuredOgImage(siteUrl),
         width: 1200,
         height: 630,
-        alt: "Wolfsfera Solana Hub",
+        alt: `Wolfsfera Solana Hub${previewSuffix}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@Wolfsfera",
-    title: "Wolfsfera Solana Hub",
+    title: `Wolfsfera Solana Hub${previewSuffix}`,
     description: "Hub informativo sobre inversiones y ecosistema Solana.",
     images: [getStructuredOgImage(siteUrl)],
   },
@@ -91,6 +108,11 @@ export default function RootLayout({
         className={`${poppins.className} flex min-h-screen flex-col bg-transparent text-neutral-100 antialiased`}
       >
         <Header />
+        <EnvBanner
+          deploymentEnv={deploymentEnv}
+          siteUrl={configuredSiteUrl}
+          productionDomain={PRODUCTION_SITE_URL}
+        />
         <main className="container mx-auto flex-1 px-4 py-8">
           <div className="space-y-12">{children}</div>
         </main>
