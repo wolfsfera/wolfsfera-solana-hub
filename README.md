@@ -88,6 +88,15 @@ Ambos componentes respetan accesibilidad y estilos de foco dorado para integrars
 - Los clics en CTAs afiliados respetan el consentimiento de cookies y registran métricas básicas en `localStorage['wf_events']`. Cada clave corresponde al nombre del evento (p. ej. `affiliate_click`).
 - Antes de publicar nuevos partners revisa la nota legal: Wolfsfera es un medio informativo, los enlaces pueden contener afiliación y existen riesgos inherentes al invertir.
 
+## Recursos y CTA
+
+- Añade o edita recursos desde `data/resources.json`. Cada entrada incluye `id`, `name`, `category` (`"guías" | "wallet" | "exchange" | "herramienta" | "educación"`), `summary`, `url`, `whitelistDomain` y `tags` opcionales.
+- Usa `tags` con el valor `"afiliado"` para que `ResourceCard` muestre el CTA como botón de afiliado con UTM automáticas. Otros tags se renderizan como badges.
+- Renderiza el grid con `<ResourceExplorer resources={resources} />` y el layout de cards con `<ResourceCard {...item} />`. `ResourceCard` valida el dominio indicado en `whitelistDomain` y desactiva el CTA cuando no está permitido.
+- Mantén actualizada la lista de dominios permitidos en `data/whitelist.json` antes de publicar nuevos recursos o CTA externos.
+- El bloque `<CTASection>` encapsula CTAs destacados con fondo dorado, botón afiliado y `aria-labelledby`. Puedes sobreescribir los parámetros UTM mediante la prop `utm`.
+- Toda comunicación de afiliados debe acompañarse del aviso legal correspondiente en las páginas donde se utilicen estos componentes.
+
 ## SEO y Analytics
 
 1. Configura las variables de entorno en `.env.local`:

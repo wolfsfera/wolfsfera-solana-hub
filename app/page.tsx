@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Section } from "@/components/Section";
 import { buildMetadata } from "@/lib/seo";
+import { AffiliateButton } from "@/components/AffiliateButton";
 
 export function generateMetadata(): Metadata {
   return buildMetadata({
@@ -20,6 +22,26 @@ export default function HomePage() {
       <p className="text-neutral-200">
         Estamos preparando guías de inversión, breakdowns de proyectos emergentes y tutoriales prácticos para que avances con confianza. Navega por las secciones y vuelve pronto para descubrir las novedades.
       </p>
+      <div className="flex flex-wrap gap-4 pt-2">
+        <Link
+          href="/inversiones"
+          className="inline-flex items-center justify-center rounded-full border border-primary-gold/40 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary-gold transition hover:-translate-y-0.5 hover:border-primary-gold/70 hover:text-white"
+        >
+          Inversiones
+        </Link>
+        <AffiliateButton
+          href="https://pump.fun"
+          label="Pump.fun"
+          external
+          utm={{ utm_source: "wolfsfera", utm_medium: "cta", utm_campaign: "home" }}
+        />
+        <Link
+          href="/recursos"
+          className="inline-flex items-center justify-center rounded-full border border-primary-gold/40 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary-gold transition hover:-translate-y-0.5 hover:border-primary-gold/70 hover:text-white"
+        >
+          Recursos
+        </Link>
+      </div>
     </Section>
   );
 }

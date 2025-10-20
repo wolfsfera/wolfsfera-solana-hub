@@ -1,0 +1,90 @@
+[
+  {
+    "id": "solana-foundation-guides",
+    "name": "Guías oficiales de Solana",
+    "category": "guías",
+    "summary": "Documentación base de Solana con ejemplos y tutoriales para desarrolladores y validadores.",
+    "url": "https://docs.solana.com/",
+    "whitelistDomain": "docs.solana.com",
+    "tags": ["fundamentos"]
+  },
+  {
+    "id": "solana-compass",
+    "name": "Solana Compass",
+    "category": "educación",
+    "summary": "Ruta de aprendizaje curada con cursos, talleres y podcasts para dominar el ecosistema.",
+    "url": "https://solanacompass.com/learn",
+    "whitelistDomain": "solanacompass.com",
+    "tags": ["comunidad"]
+  },
+  {
+    "id": "phantom-wallet",
+    "name": "Phantom Wallet",
+    "category": "wallet",
+    "summary": "Wallet líder en Solana con soporte multiplataforma, swaps integrados y control de permisos.",
+    "url": "https://phantom.app/download",
+    "whitelistDomain": "phantom.app",
+    "tags": ["autocustodia"]
+  },
+  {
+    "id": "solflare-wallet",
+    "name": "Solflare",
+    "category": "wallet",
+    "summary": "Wallet nativa con modo hardware, integraciones DeFi y dashboard de staking.",
+    "url": "https://solflare.com/",
+    "whitelistDomain": "solflare.com"
+  },
+  {
+    "id": "jupiter-aggregator",
+    "name": "Jupiter Exchange",
+    "category": "exchange",
+    "summary": "Agregador DEX con mejor ejecución en Solana, alertas de precios y routing inteligente.",
+    "url": "https://jup.ag/",
+    "whitelistDomain": "jup.ag",
+    "tags": ["routing"]
+  },
+  {
+    "id": "orca-liquidity",
+    "name": "Orca DEX",
+    "category": "exchange",
+    "summary": "Interfaz amigable para swaps, pools concentrados y campañas de liquidez gamificadas.",
+    "url": "https://www.orca.so/",
+    "whitelistDomain": "orca.so"
+  },
+  {
+    "id": "kamino-strategies",
+    "name": "Kamino",
+    "category": "herramienta",
+    "summary": "Estrategias automatizadas para liquidez concentrada, préstamos y vaults institucionales.",
+    "url": "https://app.kamino.finance/strategies",
+    "whitelistDomain": "kamino.finance",
+    "tags": ["rendimiento"]
+  },
+  {
+    "id": "helius-api-guide",
+    "name": "Guía Helius API",
+    "category": "guías",
+    "summary": "Playbook para indexar datos on-chain usando Helius: webhooks, RPC escalable y ejemplos TS.",
+    "url": "https://docs.helius.dev/",
+    "whitelistDomain": "docs.helius.dev",
+    "tags": ["desarrollo"]
+  },
+  {
+    "id": "pumpfun-launchpad",
+    "name": "Pump.fun Launchpad",
+    "category": "herramienta",
+    "summary": "Lanzamiento express de tokens meme con tools de seguimiento y tablero de tendencias.",
+    "url": "https://pump.fun/",
+    "whitelistDomain": "pump.fun",
+    "tags": ["afiliado", "memecoins"]
+  },
+  {
+    "id": "marinade-staking-playbook",
+    "name": "Marinade Staking",
+    "category": "guías",
+    "summary": "Dashboard para delegar SOL con estrategias líquidas y delegación nativa optimizada.",
+    "url": "https://marinade.finance/stake",
+    "whitelistDomain": "marinade.finance",
+    "tags": ["staking"]
+  }
+]

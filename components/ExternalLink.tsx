@@ -38,11 +38,28 @@ export function isDomainAllowed(domainOrHref: string | null | undefined): boolea
 const baseClasses =
   "underline underline-offset-4 transition focus-visible:outline-none focus-visible:ring-0";
 
+function mergeRel(rel?: string): string | undefined {
+  const defaults = ["noopener", "noreferrer"];
+  if (!rel) {
+    return defaults.join(" ");
+  }
+
+  const tokens = new Set(
+    `${rel} ${defaults.join(" ")}`
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((token) => token.toLowerCase()),
+  );
+
+  return Array.from(tokens).join(" ");
+}
+
 export function ExternalLink({
   href,
   children,
   className = "",
   unstyled = false,
+  rel,
   ...props
 }: ExternalLinkProps) {
   const domain = extractDomain(href);
@@ -67,6 +84,7 @@ export function ExternalLink({
         {...props}
         href={href}
         className={fallbackClassName}
+        rel={mergeRel(rel)}
       >
         {children}
       </a>
@@ -78,7 +96,7 @@ export function ExternalLink({
       {...props}
       href={href}
       target="_blank"
-      rel="noopener noreferrer"
+      rel={mergeRel(rel)}
       className={allowedClassName}
     >
       {children}

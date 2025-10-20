@@ -6,6 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 import { InvestmentsView } from "@/components/investments/InvestmentsView";
 import { CATEGORY_LABELS } from "@/components/investments/constants";
 import type { Investment } from "@/components/investments/types";
+import { CTASection } from "@/components/CTASection";
 
 const investments = investmentsData as Investment[];
 
@@ -80,6 +81,14 @@ export default function InversionesPage({
           Wolfsfera no ofrece asesoramiento financiero. DYOR.
         </p>
         <InvestmentsView investments={investments} initialSearchParams={searchParams} />
+        <CTASection
+          title="Configura tu wallet base"
+          subtitle="Descarga Phantom para gestionar tokens, firmar transacciones y monitorear tu portfolio en Solana."
+          href="https://phantom.app/download"
+          label="Descargar Phantom"
+          external
+          utm={{ utm_source: "wolfsfera", utm_medium: "cta", utm_campaign: "inversiones" }}
+        />
       </Section>
       {buildItemListSchema(investments)}
     </>
