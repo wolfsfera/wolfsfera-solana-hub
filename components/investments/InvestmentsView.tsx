@@ -144,6 +144,10 @@ export function InvestmentsView({
   );
 
   useEffect(() => {
+    if (!pathname) {
+      return;
+    }
+
     const nextQuery = buildQueryString(selectedCategories, selectedRisk, sortOrder);
     if (queryRef.current === nextQuery) {
       return;

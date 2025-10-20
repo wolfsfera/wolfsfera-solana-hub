@@ -40,6 +40,20 @@ La interfaz utiliza la paleta negro/dorado metálico con acentos Solana:
 
 La tipografía base es **Poppins** (con fallback `system-ui`). Puedes aplicar el estilo global a tus componentes usando las clases utilitarias de Tailwind y los helpers definidos en `app/globals.css` (`.gold-gradient`, `.solana-sheen`, `.btn-gold`).
 
+## Páginas estáticas y rutas de error
+
+Las siguientes rutas están disponibles con contenido placeholder mientras definimos la versión definitiva:
+
+- `/glosario`
+- `/recursos`
+- `/legal/aviso`
+- `/legal/privacidad`
+- `/legal/afiliados`
+- `/404`
+- `/500`
+
+Los textos se actualizarán en futuras iteraciones para reflejar la redacción legal aprobada y los recursos finales.
+
 ### Componentes destacados
 
 `AffiliateButton` genera enlaces con estilo dorado y puede añadir parámetros UTM automáticamente:

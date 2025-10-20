@@ -16,6 +16,9 @@ const navItems: NavItem[] = [
   { href: "/pumpfun", label: "Pump.fun" },
   { href: "/glosario", label: "Glosario" },
   { href: "/recursos", label: "Recursos" },
+  { href: "/legal/aviso", label: "Aviso legal" },
+  { href: "/legal/privacidad", label: "Privacidad" },
+  { href: "/legal/afiliados", label: "Afiliados" },
 ];
 
 export function Header() {

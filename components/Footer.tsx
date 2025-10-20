@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-const legalLinks = [
+const footerLinks = [
+  { href: "/glosario", label: "Glosario" },
+  { href: "/recursos", label: "Recursos" },
   { href: "/legal/aviso", label: "Aviso legal" },
   { href: "/legal/privacidad", label: "Privacidad" },
   { href: "/legal/afiliados", label: "Afiliados" },
@@ -19,9 +21,9 @@ export function Footer() {
             Como afiliados podemos obtener ingresos por compras cualificadas.
           </p>
         </div>
-        <nav aria-label="Enlaces legales">
+        <nav aria-label="Navegación secundaria">
           <ul className="flex flex-col gap-2 text-sm md:items-end">
-            {legalLinks.map((link) => (
+            {footerLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   className="rounded-md px-2 py-1 text-neutral-200 transition hover:text-primary-gold focus-visible:outline-none"
