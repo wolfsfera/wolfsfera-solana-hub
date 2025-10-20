@@ -70,5 +70,6 @@ declare global {
       action: string,
       options?: Record<string, unknown>,
     ) => void;
+    initConsent?: () => void;
   }
 }

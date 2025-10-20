@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
-import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -15,12 +14,6 @@ import {
   resolveSiteUrl,
 } from "@/lib/seo";
 import { EnvBanner } from "@/components/EnvBanner";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
 
 const siteUrl = resolveSiteUrl();
 const deploymentEnv = getDeploymentEnv();
@@ -104,9 +97,7 @@ export default function RootLayout({
         <meta property="og:site_name" content="Wolfsfera" />
         <meta name="twitter:card" content="summary_large_image" />
       </head>
-      <body
-        className={`${poppins.className} flex min-h-screen flex-col bg-transparent text-neutral-100 antialiased`}
-      >
+      <body className="flex min-h-screen flex-col bg-transparent text-neutral-100 antialiased">
         <Header />
         <EnvBanner
           deploymentEnv={deploymentEnv}

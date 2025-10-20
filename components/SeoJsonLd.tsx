@@ -57,7 +57,7 @@ export function SeoJsonLd() {
   const siteUrl = resolveSiteUrl();
 
   const jsonLd = useMemo(() => {
-    const baseGraph = [
+    const baseGraph: Array<Record<string, unknown>> = [
       {
         "@type": "Organization",
         name: "Wolfsfera",
